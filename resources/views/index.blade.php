@@ -34,7 +34,45 @@
         </div>
 
         <div class="content mt-3">
+        <div class="col-sm-6 col-lg-3">
+                <div class="card text-white bg-flat-color-1">
+                    <div class="card-body pb-0">
+                        <div class="dropdown float-right">
+                            
+                            
+                        </div>
+                        <h4 class="mb-0">
+                            <span class="count">20</span>
+                        </h4>
+                        <p class="text-light">Toners</p>
 
+                    </div>
+
+                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                        <canvas id="widgetChart3"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!--/.col-->
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="card text-white bg-flat-color-5">
+                    <div class="card-body pb-0">
+                        <div class="dropdown float-right">
+                           
+                        </div>
+                        <h4 class="mb-0">
+                            <span class="count">40</span>
+                        </h4>
+                        <p class="text-light">Impresoras</p>
+
+                        <div class="chart-wrapper px-3" style="height:70px;" height="70">
+                            <canvas id="widgetChart4"></canvas>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
            
 
 
