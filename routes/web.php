@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TonerController;
+use App\Http\Controllers\ImpresoraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,7 @@ Route::get('/', function () {
 
 //llama a la vista agregar toner
 Route::get('/toners/create',[TonerController::class,'create'])->name('toners.create');
+//llama a la vista agregar impresora
+Route::get('/impresoras/create',[ImpresoraController::class,'create'])->name('impresoras.create');
 
 
