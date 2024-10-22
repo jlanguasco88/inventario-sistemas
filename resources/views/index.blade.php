@@ -73,20 +73,6 @@
                     </div>
                 </div>
             </div>
-           
-
-
-
-            
-
-           
-
-
-
-           
-
-            
-
 
         </div> <!-- .content -->
     </div><!-- /#right-panel -->

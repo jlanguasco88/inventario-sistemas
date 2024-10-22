@@ -11,7 +11,7 @@ class TonerController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.toners.index');
     }
 
     /**
@@ -43,7 +43,7 @@ class TonerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.toners.edit');
     }
 
     /**
@@ -59,6 +59,6 @@ class TonerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return view('admin.toners.delete');
     }
 }

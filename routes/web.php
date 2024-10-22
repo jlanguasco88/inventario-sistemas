@@ -19,9 +19,25 @@ Route::get('/', function () {
     return view('index');
 });
 
-//llama a la vista agregar toner
-Route::get('/toners/create',[TonerController::class,'create'])->name('toners.create');
+//llama a la vista de invetario de impresoras
+Route::get('/impresoras/index',[ImpresoraController::class,'index'])->name('impresoras.index');
 //llama a la vista agregar impresora
 Route::get('/impresoras/create',[ImpresoraController::class,'create'])->name('impresoras.create');
+//llama a la vista editar impresora
+Route::get('/impresoras/edit',[ImpresoraController::class,'edit'])->name('impresoras.edit');
+//llama a la vista editar impresora
+Route::get('/impresoras/delete',[ImpresoraController::class,'delete'])->name('impresoras.delete');
+
+
+
+
+//llama a la vista de invetario de toner
+Route::get('/toners/index',[TonerController::class,'index'])->name('toners.index');
+//llama a la vista agregar toner
+Route::get('/toners/create',[TonerController::class,'create'])->name('toners.create');
+//llama a la vista editar impresora
+Route::get('/toners/edit',[TonerController::class,'edit'])->name('toners.edit');
+//llama a la vista editar impresora
+Route::get('/toners/delete',[TonerController::class,'delete'])->name('toners.delete');
 
 
