@@ -66,7 +66,7 @@ class ModelosController extends Controller
 
         $modelo->update($request->all());
 
-        return redirect()->route('modelos.index');
+        return redirect()->route('modelos.index')->with('ModeloActualizado','OK');
     }
 
 

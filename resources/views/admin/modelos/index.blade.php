@@ -10,8 +10,11 @@
                     <strong>Listado de modelos de toners</strong>
                 </div>
                 <div class="card-body">
+                <a href="{{ route('modelos.create') }}" type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; Agregar Modelo</a>                          
+                </div>
+                <div class="card-body">
                     <!-- Tabla de impresoras -->
-                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered" style="text-align: center">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
@@ -29,12 +32,12 @@
                                         } else {
                                             echo 'Activo';
                                         }?></td> 
-                             <td style="text-align: center">      
+                             <td>      
                                 <a href="{{ route('modelos.edit', $modelo->id) }}">
                                 <button class="btn btn-warning rounded-circle" title="Editar"><i class="fa fa-pencil" style="display:inline"></i></button>
                               </a>
                             </td>
-                             <td style="text-align: center">
+                             <td>
                                 <a href="{{ route('modelos.destroy', $modelo->id) }}">
                                 <button class="btn btn-danger rounded-circle" title="Eliminar"  onclick="return confirm('Está seguro de eliminar el modelo de toner?')"><i class="fa fa-trash style="display:inline"></i></button>
                               </a>

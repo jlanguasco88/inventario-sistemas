@@ -22,6 +22,8 @@
 <script src="/admin/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
 <script src="/admin/vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
 <script src="/admin/assets/js/init-scripts/data-table/datatables-init.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <script>
     (function ($) {
@@ -45,3 +47,26 @@
     new DataTable('#example',{resposive:true});
 </script>
 
+@if(session('ModeloCreado') == 'OK')
+    <script type="text/javascript">
+        
+      Swal.fire(
+
+          'Los datos han sido agregados con éxito',
+          '',
+          'success'
+        )
+
+    </script>
+@elseif(session('ModeloActualizado') == 'OK') 
+    <script type="text/javascript">  
+        
+      Swal.fire(
+
+          'Datos actualizados con éxito',
+          '',
+          'warning'
+        )
+
+    </script>   
+@endif
