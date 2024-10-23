@@ -8,7 +8,7 @@
                 <!-- Asegúrate de que la columna ocupe el espacio adecuado en diferentes tamaños de pantalla -->
                 <div class="card">
                     <div class="card-header text-center">
-                        <strong>Actualizar Nuevo Modelo de Tóner</strong>
+                        <strong>Actualizar Modelo de Tóner</strong>
                     </div>
                     <div class="card-body card-block">
                         <!-- Aquí comienza el formulario -->
@@ -31,9 +31,16 @@
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-indent"></i></div>
                                     <select name="activo" class="form-control" required>
-                                        <option value="{{$modelo->activo}}" selected>{{($modelo->activo)}}</option>
+                                        <?php if ($modelo->activo == 0){
+                                            echo '<option value="1">Activo</option>
+                                        <option value="0" selected>Inactivo</option>';
+                                        } else {
+                                            echo '<option value="1" selected>Activo</option>
+                                        <option value="0" >Inactivo</option>';
+                                        }?>
+                                        <!-- <option value="{{$modelo->activo}}" selected>{{($modelo->activo)}}</option>
                                         <option value="1">Activo</option>
-                                        <option value="0">Inactivo</option>
+                                        <option value="0">Inactivo</option> -->
                                     </select>
                                 </div>
                             </div>
