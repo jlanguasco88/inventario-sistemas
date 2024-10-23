@@ -313,8 +313,8 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
-            1 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
         ),
         'Spatie\\Ignition\\' => 
         array (
@@ -532,9 +532,16 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AreasController' => __DIR__ . '/../..' . '/app/Http/Controllers/AreasController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\ImpresoraController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImpresoraController.php',
+        'App\\Http\\Controllers\\ImpresorasController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImpresorasController.php',
+        'App\\Http\\Controllers\\ModelosController' => __DIR__ . '/../..' . '/app/Http/Controllers/ModelosController.php',
+        'App\\Http\\Controllers\\MovimientosController' => __DIR__ . '/../..' . '/app/Http/Controllers/MovimientosController.php',
         'App\\Http\\Controllers\\TonerController' => __DIR__ . '/../..' . '/app/Http/Controllers/TonerController.php',
+        'App\\Http\\Controllers\\TonersController' => __DIR__ . '/../..' . '/app/Http/Controllers/TonersController.php',
+        'App\\Http\\Controllers\\UbicacionController' => __DIR__ . '/../..' . '/app/Http/Controllers/UbicacionController.php',
+        'App\\Http\\Controllers\\UsuariosController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsuariosController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -545,7 +552,14 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Areas' => __DIR__ . '/../..' . '/app/Models/Areas.php',
+        'App\\Models\\Impresoras' => __DIR__ . '/../..' . '/app/Models/Impresoras.php',
+        'App\\Models\\Modelos' => __DIR__ . '/../..' . '/app/Models/Modelos.php',
+        'App\\Models\\Movimientos' => __DIR__ . '/../..' . '/app/Models/Movimientos.php',
+        'App\\Models\\Toners' => __DIR__ . '/../..' . '/app/Models/Toners.php',
+        'App\\Models\\Ubicacion' => __DIR__ . '/../..' . '/app/Models/Ubicacion.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\Usuarios' => __DIR__ . '/../..' . '/app/Models/Usuarios.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
