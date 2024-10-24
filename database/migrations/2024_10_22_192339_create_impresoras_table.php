@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('impresoras', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('descripcion');
+            $table->unsignedBigInteger('id_modelo');
+            $table->string('orden',25);
+            $table->string('ubicacion',50)->nullable();
             $table->boolean('activo')->default(true);
             $table->timestamps();
         });

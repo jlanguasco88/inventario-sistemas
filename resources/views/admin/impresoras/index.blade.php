@@ -4,65 +4,52 @@
 <div class="content mt-3">
     <div class="row justify-content-center">
 
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">
                     <strong>Inventario de Impresoras</strong>
                 </div>
                 <div class="card-body">
-                    <!-- Tabla de impresoras -->
-                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Modelo</th>
-                                <th>Tipo</th>
-                                <th>Area de Ubicacion</th>
-                                <th>Fecha de Compra</th>
-                                <th>Observaciones</th>
-                                <th>Editar</th>
-                                <th>Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>HP 107a</td>
-                                <td>Laser</td>
-                                <td>Sistemas</td>
-                                <td>25/07/24</td>
-                                <td>Miguel baja el volumen</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning btn-sm"><i
-                                            class="fa fa-pencil"></i>&nbsp;</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm"><i
-                                            class="fa fa-trash"></i>&nbsp;</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>HP 108a</td>
-                                <td>Lasers</td>
-                                <td>Agrimensura</td>
-                                <td>26/07/24</td>
-                                <td>Miguelasd baja el volumen</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning btn-sm"><i
-                                            class="fa fa-pencil"></i>&nbsp;</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm"><i
-                                            class="fa fa-trash"></i>&nbsp;</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="card-body">
+                        <a href="{{ route('impresoras.create') }}" type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; Agregar Impresoras</a>
+                    </div>
+                    <div class="card-body">
+                        <!-- Tabla de impresoras -->
+                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered" style="text-align: center">
+                            <thead>
+                                <tr>
+                                    <th>Descripcion</th>
+                                    <th>Modelo</th>
+                                    <th>Orden</th>
+                                    <th>Ubicacion</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($impresoras as $impresora)
+                                <tr>
+                                    <td>{{$impresora->descripcion}}</td>
+                                    <td>{{ $impresora->modelos ? $impresora->modelos->nombre : 'N/A' }}</td>
+                                    <td>{{$impresora->orden}}</td>
+                                    <td>{{$impresora->ubicacion ? $impresora->ubicacion : 'N/A' }}</td>
+                                    <td>
+                                        <a href="">
+                                            <button class="btn btn-warning rounded-circle" title="Editar"><i class="fa fa-pencil" style="display:inline"></i></button>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="">
+                                            <button class="btn btn-danger rounded-circle" title="Eliminar" onclick="return confirm('Está seguro de eliminar el modelo de toner?')"><i class="fa fa-trash style=" display:inline"></i></button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
-
+    @endsection

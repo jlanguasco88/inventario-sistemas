@@ -15,4 +15,5 @@ class Modelos extends Model
         'activo'
         
     ];
+
 }

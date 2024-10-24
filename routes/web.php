@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ModelosController;
 use App\Http\Controllers\TonerController;
-use App\Http\Controllers\ImpresoraController;
+use App\Http\Controllers\ImpresorasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ Route::get('/modelos/delete',[ModelosController::class,'destroy'])->name('modelo
 Route::put('/modelos/{id}', [ModelosController::class, 'update'])->name('modelos.update');
 
 //llama a la vista de invetario de toner
-Route::get('/toners/index',[TonerController::class,'index'])->name('toners.index');
+Route::get('/toners',[TonerController::class,'index'])->name('toners.index');
 //llama a la vista agregar toner
 Route::get('/toners/create',[TonerController::class,'create'])->name('toners.create');
 //llama a la vista editar impresora
@@ -42,13 +42,14 @@ Route::get('/toners/delete',[TonerController::class,'delete'])->name('toners.del
 
 
 //llama a la vista de invetario de impresoras
-Route::get('/impresoras/index',[ImpresoraController::class,'index'])->name('impresoras.index');
+Route::get('/impresoras',[ImpresorasController::class,'index'])->name('impresoras.index');
+Route::post('/impresoras',[ImpresorasController::class,'store'])->name('impresoras.store');
 //llama a la vista agregar impresora
-Route::get('/impresoras/create',[ImpresoraController::class,'create'])->name('impresoras.create');
+Route::get('/impresoras/create',[ImpresorasController::class,'create'])->name('impresoras.create');
 //llama a la vista editar impresora
-Route::get('/impresoras/edit',[ImpresoraController::class,'edit'])->name('impresoras.edit');
+Route::get('/impresoras/edit',[ImpresorasController::class,'edit'])->name('impresoras.edit');
 //llama a la vista editar impresora
-Route::get('/impresoras/delete',[ImpresoraController::class,'delete'])->name('impresoras.delete');
+Route::get('/impresoras/delete',[ImpresorasController::class,'delete'])->name('impresoras.delete');
 
 
 

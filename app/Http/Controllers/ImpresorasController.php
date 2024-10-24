@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Modelos;
 use App\Models\Impresoras;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,8 @@ class ImpresorasController extends Controller
      */
     public function index()
     {
-        //
+        $impresoras = Impresoras::with('modelos')->get();
+        return view('admin.impresoras.index',compact('impresoras'));
     }
 
     /**
@@ -20,7 +21,8 @@ class ImpresorasController extends Controller
      */
     public function create()
     {
-        //
+        $modelos= Modelos::all();
+        return view('admin.impresoras.create',compact('modelos'));
     }
 
     /**
@@ -28,7 +30,23 @@ class ImpresorasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validar los datos de entrada
+        $request->validate([
+            'descripcion' => 'required|string|max:255',
+            'id_modelo'=> 'required',
+            'orden'=> 'required',
+        ]);
+
+        // Crear un nuevo registro en la base de datos
+        Impresoras::create([
+            'descripcion' => $request->descripcion,
+            'id_modelo'=> $request->id_modelo,
+            'orden'=> $request->orden,
+            'ubicacion'=>$request->ubicacion,
+        ]);
+
+        // Redirigir a la lista de áreas con un mensaje de éxito
+        return redirect()->route('impresoras.index')->with('ImpresoraCreado','OK');
     }
 
     /**

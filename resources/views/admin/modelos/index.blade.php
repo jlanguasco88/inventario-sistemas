@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-center">
-                    <strong>Listado de modelos de toners</strong>
+                    <h1>Listado de modelos de toners</h1>
                 </div>
                 <div class="card-body">
                 <a href="{{ route('modelos.create') }}" type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; Agregar Modelo</a>                          
@@ -26,7 +26,7 @@
                         <tbody>
                         @foreach ($modelos as $modelo)
                         <tr>
-                             <td>{{$modelo->nombre}}</td>  
+                             <td>{{$modelo->descripcion}}</td>  
                              <td><?php if ($modelo->activo == 0){
                                             echo 'Inactivo';
                                         } else {
