@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body">
                     <div class="card-body">
-                        <a href="{{ route('impresoras.create') }}" type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; Agregar Impresoras</a>
+                        <a href="{{ route('impresoras.create') }}" type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; Agregar Impresora</a>
                     </div>
                     <div class="card-body">
                         <!-- Tabla de impresoras -->

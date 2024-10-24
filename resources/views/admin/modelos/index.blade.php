@@ -26,7 +26,7 @@
                         <tbody>
                         @foreach ($modelos as $modelo)
                         <tr>
-                             <td>{{$modelo->descripcion}}</td>  
+                             <td>{{$modelo->nombre}}</td>  
                              <td><?php if ($modelo->activo == 0){
                                             echo 'Inactivo';
                                         } else {
