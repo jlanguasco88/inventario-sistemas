@@ -5,14 +5,14 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo" height="100%" width="100%"></a>
-                <a class="navbar-brand hidden" href="#"><img src="logo2.png" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="/admin/images/logo.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="#"><img src="/admin/images/logo2.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Inicio </a>
+                        <a href="http://localhost:8000/"> <i class="menu-icon fa fa-dashboard"></i>Inicio </a>
                     </li>
                     <h3 class="menu-title">Menú General</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">

@@ -7,7 +7,7 @@
         <div>
             <div class="card">
                 <div class="card-header text-center">
-                    <strong>Inventario de Impresoras</strong>
+                    <h1>Inventario de Toners</h1>
                 </div>
                 <div class="card-body">
                     <!-- Tabla de impresoras -->

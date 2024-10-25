@@ -17,7 +17,7 @@ use App\Http\Controllers\ImpresorasController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('inicio');
 });
 
 //llama a la vista de invetario de toner

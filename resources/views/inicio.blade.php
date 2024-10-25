@@ -26,7 +26,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li class="active">Dashboard</li>
+                            <li class="active"></li>
                         </ol>
                     </div>
                 </div>
@@ -41,10 +41,10 @@
                             
                             
                         </div>
-                        <h4 class="mb-0">
+                        <h1 class="mb-0">
                             <span class="count">20</span>
-                        </h4>
-                        <p class="text-light">Toners</p>
+                        </h1>
+                        <h1 class="text-light">Toners <i class="fa fa-tint"></i></h1>
 
                     </div>
 
@@ -61,10 +61,10 @@
                         <div class="dropdown float-right">
                            
                         </div>
-                        <h4 class="mb-0">
+                        <h1 class="mb-0">
                             <span class="count">40</span>
-                        </h4>
-                        <p class="text-light">Impresoras</p>
+                        </h1>
+                        <h1 class="text-light">Impresoras <i class="fa fa-print"></i></h1>
 
                         <div class="chart-wrapper px-3" style="height:70px;" height="70">
                             <canvas id="widgetChart4"></canvas>

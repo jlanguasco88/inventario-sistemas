@@ -44,7 +44,12 @@
     })(jQuery);
 </script>
 <script>
-    new DataTable('#example',{resposive:true});
+    new DataTable('#example',{
+        resposive:true,
+    language: {
+            url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+        }
+    });
 </script>
 
 @if(session('ModeloCreado') == 'OK')
