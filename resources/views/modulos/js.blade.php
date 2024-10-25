@@ -24,6 +24,13 @@
 <script src="/admin/assets/js/init-scripts/data-table/datatables-init.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<!-- prueba-->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
+<script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.js"></script>
+<script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.bootstrap5.js"></script>
 
 <script>
     (function ($) {
@@ -44,12 +51,24 @@
     })(jQuery);
 </script>
 <script>
-    new DataTable('#example',{
-        resposive:true,
+new DataTable('#example', {
+    responsive: {
+        details: {
+            display: DataTable.Responsive.display.modal({
+                header: function (row) {
+                    var data = row.data();
+                    return 'Details for ' + data[0] + ' ' + data[1];
+                }
+            }),
+            renderer: DataTable.Responsive.renderer.tableAll({
+                tableClass: 'table'
+            })
+        }
+    },
     language: {
             url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
         }
-    });
+});
 </script>
 
 @if(session('ModeloCreado') == 'OK')

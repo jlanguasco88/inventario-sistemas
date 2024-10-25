@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body">
                     <!-- Tabla de impresoras -->
-                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered" style="text-align: center">
+                    <table id="example" class="table table-striped nowrap" style="width:100%" style="text-align: center">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
