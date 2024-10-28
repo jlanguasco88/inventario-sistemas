@@ -12,29 +12,27 @@
                     </div>
                     <div class="card-body card-block">
                         <!-- Aquí comienza el formulario -->
-                        <form method="POST" action="">
+                        <form method="POST" action="{{route('toners.store')}}">
                             @csrf <!-- Token de seguridad para formularios en Laravel -->
 
-                            <!-- Campo Modelo de Tóner -->
+                            <!-- Campo Modelo de Impresora -->
                             <div class="form-group">
-                                <label class="form-control-label">Modelo de Tóner</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-tint"></i></div>
-                                    <input type="text" name="modelo_toner" class="form-control" placeholder="Ej. 105A"
-                                        required>
-                                </div>
+                                <label>Modelo de toner:</label>
+                                <select class="form-control input-lg" name="id_modelo" required="">
+                                    <option value="">Seleccionar Modelo</option>
+                                    @foreach($modelos as $modelo)
+                                    <option value="{{$modelo->id}}">{{$modelo->nombre}}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
-                            <!-- Campo Tipo -->
+                            <!-- Campo Stock de Compra -->
                             <div class="form-group">
-                                <label class="form-control-label">Tipo</label>
+                                <label class="form-control-label">Stock de Compra</label>
                                 <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-indent"></i></div>
-                                    <select name="tipo" class="form-control" required>
-                                        <option value="" disabled selected>Seleccione una opción</option>
-                                        <option value="original">Original</option>
-                                        <option value="alternativo">Alternativo</option>
-                                    </select>
+                                    <div class="input-group-addon"><i class="fa fa-cubes"></i></div>
+                                    <input type="number" name="stock" class="form-control"
+                                        placeholder="Ingrese la cantidad de stock" min="1" required>
                                 </div>
                             </div>
 

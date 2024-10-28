@@ -10,14 +10,13 @@
                     <h1>Inventario de Toners</h1>
                 </div>
                 <div class="card-body">
-                    <!-- Tabla de impresoras -->
-                    <table id="example" class="table table-striped nowrap" style="width:100%" style="text-align: center">
+                    <!-- Tabla de toners -->
+                    <table id="example" class="table table-striped nowrap" style="width:100%" style="text-align:center">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Modelo</th>
-                                <th>Tipo</th>
-                                <th>Cantidad disponible</th>
+                                <th>Stock</th>
                                 <th>Fecha de Compra</th>
                                 <th>Observaciones</th>
                                 <th>Editar</th>
@@ -26,31 +25,25 @@
                         </thead>
                         <tbody>
 
-                            <tr>
-                                <td>1</td>
-                                <td>105a</td>
-                                <td>Original</td>
-                                <td>25</td>
-                                <td>25/07/24</td>
-                                <td>Miguel baja el volumen</td>
-                                <td><button type="button" class="btn btn-warning btn-sm"><i
-                                            class="fa fa-pencil"></i>&nbsp;</button></button></td>
-                                <td><button type="button" class="btn btn-danger btn-sm"><i
-                                            class="fa fa-trash"></i>&nbsp;</button></button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>85a</td>
-                                <td>Alternativo</td>
-                                <td>10</td>
-                                <td>25/07/24</td>
-                                <td>Miguel baja el volumen</td>
-                                <td><button type="button" class="btn btn-warning btn-sm"><i
-                                            class="fa fa-pencil"></i>&nbsp;</button></button></td>
-                                <td><button type="button" class="btn btn-danger btn-sm"><i
-                                            class="fa fa-trash"></i>&nbsp;</button></button></td>
-                            </tr>
-
+                        @foreach ($toners as $toner)
+                                <tr>
+                                    <td>{{$toner->id}}</td>
+                                    <td>{{$toner->modelos ? $toner->modelos->nombre : 'N/A' }}</td>
+                                    <td>{{$toner->stock}}</td>
+                                    <td>{{$toner->fecha_compra}}</td>
+                                    <td>{{$toner->observaciones}}</td>
+                                    <td>
+                                        <a href="">
+                                            <button class="btn btn-warning rounded-circle" title="Editar"><i class="fa fa-pencil" style="display:inline"></i></button>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="">
+                                            <button class="btn btn-danger rounded-circle" title="Eliminar" onclick="return confirm('Está seguro de eliminar el modelo de toner?')"><i class="fa fa-trash style=" display:inline"></i></button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
                         </tbody>
                     </table>
                 </div>

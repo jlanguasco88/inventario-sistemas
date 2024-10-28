@@ -8,11 +8,11 @@
                 <!-- Asegúrate de que la columna ocupe el espacio adecuado en diferentes tamaños de pantalla -->
                 <div class="card">
                     <div class="card-header text-center">
-                        <strong>Agregar Nuevo Modelo de Tóner</strong>
+                        <strong>Agregar Nuevo Modelo de Impresora</strong>
                     </div>
                     <div class="card-body card-block">
                         <!-- Aquí comienza el formulario -->
-                        <form method="POST" action="{{route('modelos.store')}}">
+                        <form method="POST" action="{{route('modelosImpresoras.store')}}">
                             @csrf <!-- Token de seguridad para formularios en Laravel -->
 
                             <!-- Campo Modelo de Tóner -->
@@ -20,7 +20,7 @@
                                 <label class="form-control-label">Nombre</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-tint"></i></div>
-                                    <input type="text" name="nombre" class="form-control" placeholder="Ej. 105A"
+                                    <input type="text" name="nombre" class="form-control" placeholder="Ej. 107A"
                                         required>
                                 </div>
                             </div>

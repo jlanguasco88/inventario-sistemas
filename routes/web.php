@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ModelosController;
+use App\Http\Controllers\ModelosTonersController;
+use App\Http\Controllers\ModelosImpresorasController;
 use App\Http\Controllers\TonerController;
 use App\Http\Controllers\ImpresorasController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,24 +18,36 @@ use App\Http\Controllers\ImpresorasController;
 |
 */
 
-Route::get('/', function () {
-    return view('inicio');
-});
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-//llama a la vista de invetario de toner
-Route::get('/modelos',[ModelosController::class,'index'])->name('modelos.index');
-Route::post('/modelos',[ModelosController::class,'store'])->name('modelos.store');
+
+//llama a la vista de invetario de Modelos de Toners
+Route::get('/modelosToners',[ModelosTonersController::class,'index'])->name('modelosToners.index');
+Route::post('/modelosToners',[ModelosTonersController::class,'store'])->name('modelosToners.store');
 //llama a la vista agregar toner
-Route::get('/modelos/create',[ModelosController::class,'create'])->name('modelos.create');
+Route::get('/modelosToners/create',[ModelosTonersController::class,'create'])->name('modelosToners.create');
 //llama a la vista editar impresora
-Route::get('/modelos/{id}/edit',[ModelosController::class,'edit'])->name('modelos.edit');
+Route::get('/modelosToners/{id}/edit',[ModelosTonersController::class,'edit'])->name('modelosToners.edit');
 //llama a la vista editar impresora
-Route::get('/modelos/delete',[ModelosController::class,'destroy'])->name('modelos.destroy');
-Route::put('/modelos/{id}', [ModelosController::class, 'update'])->name('modelos.update');
+Route::get('/modelosToners/delete',[ModelosTonersController::class,'destroy'])->name('modelosToners.destroy');
+Route::put('/modelosToners/{id}', [ModelosTonersController::class, 'update'])->name('modelosToners.update');
+
+
+//llama a la vista de invetario de Modelos de Impresoras
+Route::get('/modelosImpresoras',[ModelosImpresorasController::class,'index'])->name('modelosImpresoras.index');
+Route::post('/modelosImpresoras',[ModelosImpresorasController::class,'store'])->name('modelosImpresoras.store');
+//llama a la vista agregar toner
+Route::get('/modelosImpresoras/create',[ModelosImpresorasController::class,'create'])->name('modelosImpresoras.create');
+//llama a la vista editar impresora
+Route::get('/modelosImpresoras/{id}/edit',[ModelosImpresorasController::class,'edit'])->name('modelosImpresoras.edit');
+//llama a la vista editar impresora
+Route::get('/modelosImpresoras/delete',[ModelosImpresorasController::class,'destroy'])->name('modelosImpresoras.destroy');
+Route::put('/modelosImpresoras/{id}', [ModelosImpresorasController::class, 'update'])->name('modelosImpresoras.update');
 
 //llama a la vista de invetario de toner
 Route::get('/toners',[TonerController::class,'index'])->name('toners.index');
 //llama a la vista agregar toner
+Route::post('/toners',[TonerController::class,'store'])->name('toners.store');
 Route::get('/toners/create',[TonerController::class,'create'])->name('toners.create');
 //llama a la vista editar impresora
 Route::get('/toners/edit',[TonerController::class,'edit'])->name('toners.edit');
@@ -50,7 +64,6 @@ Route::get('/impresoras/create',[ImpresorasController::class,'create'])->name('i
 Route::get('/impresoras/edit',[ImpresorasController::class,'edit'])->name('impresoras.edit');
 //llama a la vista editar impresora
 Route::get('/impresoras/delete',[ImpresorasController::class,'delete'])->name('impresoras.delete');
-
 
 
 

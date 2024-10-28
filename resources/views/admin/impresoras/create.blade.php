@@ -16,7 +16,7 @@
                             @csrf <!-- Token de seguridad de Laravel -->
 
                             <div class="form-group">
-                                <label class="form-control-label">Descripcion</label>
+                                <label class="form-control-label">Marca</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-tint"></i></div>
                                     <input type="text" name="descripcion" class="form-control" placeholder="Ej. HP - 107A"

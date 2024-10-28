@@ -31,7 +31,7 @@
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
 <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.js"></script>
 <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.bootstrap5.js"></script>
-
+<script type="text/javascript" src="{{ asset('js/scripts_generales.js')}}"></script>
 <script>
     (function ($) {
         "use strict";

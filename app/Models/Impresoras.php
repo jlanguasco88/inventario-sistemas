@@ -18,7 +18,7 @@ class Impresoras extends Model
 
     public function modelos()
     {
-        return $this->belongsTo(Modelos::class, 'id_modelo', 'id');
+        return $this->belongsTo(ModelosImpresoras::class, 'id_modelo', 'id');
     }
   
 

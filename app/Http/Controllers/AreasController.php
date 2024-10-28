@@ -45,8 +45,6 @@ class AreasController extends Controller
     public function edit(Areas $areas)
     {
         //
-        
-        $area = Area::findOrFail($idarea);
         return view('paginas.areas.edit', compact('area'));
     }
 

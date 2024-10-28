@@ -10,7 +10,6 @@ return array(
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AreasController' => $baseDir . '/app/Http/Controllers/AreasController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
-    'App\\Http\\Controllers\\ImpresoraController' => $baseDir . '/app/Http/Controllers/ImpresoraController.php',
     'App\\Http\\Controllers\\ImpresorasController' => $baseDir . '/app/Http/Controllers/ImpresorasController.php',
     'App\\Http\\Controllers\\ModelosController' => $baseDir . '/app/Http/Controllers/ModelosController.php',
     'App\\Http\\Controllers\\MovimientosController' => $baseDir . '/app/Http/Controllers/MovimientosController.php',

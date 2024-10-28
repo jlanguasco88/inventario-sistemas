@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('toners', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('modelos_id')->constrained('modelos')->onDelete('cascade');
-            $table->boolean('activo')->default(true);
+            $table->unsignedBigInteger('id_modelo');
+            $table->integer('stock');
+            $table->date('fecha_compra');
+            $table->string('observaciones');
             $table->timestamps();
         });
     }

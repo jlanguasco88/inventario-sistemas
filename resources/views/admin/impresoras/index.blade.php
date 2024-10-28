@@ -4,7 +4,7 @@
 <div class="content mt-3">
     <div class="row justify-content-center">
 
-        <div class="col-md-8">
+        <div>
             <div class="card">
                 <div class="card-header text-center">
                     <h1>Inventario de Impresoras</h1>
@@ -14,8 +14,8 @@
                         <a href="{{ route('impresoras.create') }}" type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp; Agregar Impresora</a>
                     </div>
                     <div class="card-body">
-                        <!-- Tabla de impresoras -->
-                        <table id="example" class="table table-striped nowrap" style="width:100%" style="text-align: center">
+                    <!-- Tabla de toners -->
+                    <table id="example" class="table table-striped nowrap" style="width:100%" style="text-align: center">
                             <thead>
                                 <tr>
                                     <th>Descripcion</th>
@@ -40,7 +40,7 @@
                                     </td>
                                     <td>
                                         <a href="">
-                                            <button class="btn btn-danger rounded-circle" title="Eliminar" onclick="return confirm('Está seguro de eliminar el modelo de toner?')"><i class="fa fa-trash style=" display:inline"></i></button>
+                                            <button class="btn btn-danger rounded-circle" title="Eliminar" onclick="return confirm('Está seguro de eliminar el modelo de toner?')"><i class="fa fa-trash style=" display:inline></i></button>
                                         </a>
                                     </td>
                                 </tr>

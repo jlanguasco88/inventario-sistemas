@@ -1,5 +1,5 @@
-
 @include('modulos.head')
+
 <body>
 
 
@@ -12,7 +12,7 @@
 
     <div id="right-panel" class="right-panel">
 
-       @include('modulos.header')
+        @include('modulos.header')
 
         <div class="breadcrumbs">
             <div class="col-sm-4">
@@ -34,18 +34,17 @@
         </div>
 
         <div class="content mt-3">
-        <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-3">
                 <div class="card text-white bg-flat-color-1">
                     <div class="card-body pb-0">
                         <div class="dropdown float-right">
-                            
-                            
                         </div>
                         <h1 class="mb-0">
-                            <span class="count">20</span>
+                            <span class="count">{{ $totalStockToners }}</span>
+                            <!-- Aquí se muestra el total del stock -->
                         </h1>
-                        <h1 class="text-light">Toners <i class="fa fa-tint"></i></h1>
-
+                        <h1 class="text-light">Toners<a href="{{ route('toners.index') }}"><i
+                                    class="fa fa-tint"></i></a></h1>
                     </div>
 
                     <div class="chart-wrapper px-0" style="height:70px;" height="70">
@@ -59,17 +58,17 @@
                 <div class="card text-white bg-flat-color-5">
                     <div class="card-body pb-0">
                         <div class="dropdown float-right">
-                           
                         </div>
                         <h1 class="mb-0">
-                            <span class="count">40</span>
+                            <span class="count">{{ $totalImpresorasActivas }}</span>
+                            <!-- Aquí se muestra la cantidad de impresoras activas -->
                         </h1>
-                        <h1 class="text-light">Impresoras <i class="fa fa-print"></i></h1>
+                        <h1 class="text-light">Impresoras <a href="{{ route('impresoras.index') }}"><i
+                                    class="fa fa-print"></i></a></h1>
 
                         <div class="chart-wrapper px-3" style="height:70px;" height="70">
                             <canvas id="widgetChart4"></canvas>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -92,7 +91,7 @@
     <script src="/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <script src="/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
-        (function($) {
+        (function ($) {
             "use strict";
 
             jQuery('#vmap').vectorMap({

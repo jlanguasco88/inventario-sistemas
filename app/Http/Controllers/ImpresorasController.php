@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Modelos;
 use App\Models\Impresoras;
+use App\Models\ModelosImpresoras;
 use Illuminate\Http\Request;
 
 class ImpresorasController extends Controller
@@ -21,7 +22,7 @@ class ImpresorasController extends Controller
      */
     public function create()
     {
-        $modelos= Modelos::all();
+        $modelos= ModelosImpresoras::all();
         return view('admin.impresoras.create',compact('modelos'));
     }
 

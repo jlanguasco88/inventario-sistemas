@@ -534,7 +534,6 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AreasController' => __DIR__ . '/../..' . '/app/Http/Controllers/AreasController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\ImpresoraController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImpresoraController.php',
         'App\\Http\\Controllers\\ImpresorasController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImpresorasController.php',
         'App\\Http\\Controllers\\ModelosController' => __DIR__ . '/../..' . '/app/Http/Controllers/ModelosController.php',
         'App\\Http\\Controllers\\MovimientosController' => __DIR__ . '/../..' . '/app/Http/Controllers/MovimientosController.php',

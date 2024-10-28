@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body card-block">
                         <!-- Aquí comienza el formulario -->
-                        <form method="POST" action="{{route('modelos.update', $modelo->id)}}">
+                        <form method="POST" action="{{route('modelosToners.update', $modelo->id)}}">
                             @csrf <!-- Token de seguridad para formularios en Laravel -->
                             @method('put')
                             <!-- Campo Modelo de Tóner -->

@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Modelos;
+use App\Models\ModelosImpresoras;
 use Illuminate\Http\Request;
 
-class ModelosController extends Controller
+class ModelosImpresorasController extends Controller
 {
 
     public function index()
     {
-        $modelos= Modelos::all();
-        return view('admin.modelos.index', compact('modelos'));
+        $modelosImpresoras= ModelosImpresoras::all();
+        return view('admin.modelosImpresoras.index', compact('modelosImpresoras'));
     }
 
 
     public function create()
     {
-        return view('admin.modelos.create');
+        return view('admin.modelosImpresoras.create');
     }
 
 
@@ -30,18 +30,18 @@ class ModelosController extends Controller
         ]);
 
         // Crear un nuevo registro en la base de datos
-        Modelos::create([
+        ModelosImpresoras::create([
             'nombre' => $request->nombre,
             'activo' => $request->activo
 
         ]);
 
         // Redirigir a la lista de áreas con un mensaje de éxito
-        return redirect()->route('modelos.index')->with('ModeloCreado','OK');
+        return redirect()->route('modelosImpresoras.index')->with('ModeloCreado','OK');
     }
 
 
-    public function show(Modelos $modelos)
+    public function show(ModelosImpresoras $modelos)
     {
         //
     }
@@ -49,8 +49,8 @@ class ModelosController extends Controller
 
     public function edit($idmodelo)
     {
-        $modelo = Modelos::findOrFail($idmodelo);
-        return view('admin.modelos.edit', compact('modelo'));
+        $modelosToners = ModelosImpresoras::findOrFail($idmodelo);
+        return view('admin.modelosToners.edit', compact('modelosToners'));
     }
 
     public function update(Request $request,$idmodelo)
@@ -62,15 +62,15 @@ class ModelosController extends Controller
             
         ]);
 
-        $modelo = Modelos::findOrFail($idmodelo);
+        $modelosToners = ModelosImpresoras::findOrFail($idmodelo);
 
-        $modelo->update($request->all());
+        $modelosToners->update($request->all());
 
-        return redirect()->route('modelos.index')->with('ModeloActualizado','OK');
+        return redirect()->route('modelosToners.index')->with('ModeloActualizado','OK');
     }
 
 
-    public function destroy(Modelos $modelos)
+    public function destroy(ModelosImpresoras $modelos)
     {
         //
     }

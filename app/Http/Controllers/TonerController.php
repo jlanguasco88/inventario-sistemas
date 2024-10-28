@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Modelos;
+use App\Models\Toners;
 use Illuminate\Http\Request;
 
 class TonerController extends Controller
@@ -11,7 +13,8 @@ class TonerController extends Controller
      */
     public function index()
     {
-        return view('admin.toners.index');
+        $toners = Toners::with('modelos')->get(); // Cambiado a Toners en lugar de TonerController
+        return view('admin.toners.index', compact('toners'));
     }
 
     /**
@@ -19,7 +22,8 @@ class TonerController extends Controller
      */
     public function create()
     {
-        return view('admin.toners.create');
+        $modelos = Modelos::all();
+        return view('admin.toners.create', compact('modelos'));
     }
 
     /**
@@ -27,7 +31,24 @@ class TonerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validar los datos de entrada
+        $request->validate([
+            'id_modelo' => 'required',
+            'stock'=> 'required|integer',
+            'fecha_compra'=> 'required|date',
+            'observaciones'=> 'required|string|max:255',
+        ]);
+
+        // Crear un nuevo registro en la base de datos
+        Toners::create([
+            'id_modelo' => $request->id_modelo, // Cambiado a $request->Nombre para coincidir con la validación
+            'stock'=> $request->stock,
+            'fecha_compra'=>$request->fecha_compra,
+            'observaciones'=>$request->observaciones,
+        ]);
+
+        // Redirigir a la lista de toners con un mensaje de éxito
+        return redirect()->route('toners.index')->with('TonerCreado', 'OK');
     }
 
     /**
