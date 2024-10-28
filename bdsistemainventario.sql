@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2024 a las 22:07:05
+-- Tiempo de generación: 28-10-2024 a las 16:49:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `invertario_sistemas`
+-- Base de datos: `bdsistemainventario`
 --
 
 -- --------------------------------------------------------
@@ -58,7 +58,10 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `impresoras` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `nombre` varchar(255) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `id_modelo` bigint(20) UNSIGNED NOT NULL,
+  `orden` varchar(25) NOT NULL,
+  `ubicacion` varchar(50) DEFAULT NULL,
   `activo` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -96,16 +99,45 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `modelos`
+-- Estructura de tabla para la tabla `modelosimpresoras`
 --
 
-CREATE TABLE `modelos` (
+CREATE TABLE `modelosimpresoras` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `activo` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `modelosimpresoras`
+--
+
+INSERT INTO `modelosimpresoras` (`id`, `nombre`, `activo`, `created_at`, `updated_at`) VALUES
+(3, 'Hp Laser 107a', 1, '2024-10-28 18:18:32', '2024-10-28 18:18:32');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `modelostoners`
+--
+
+CREATE TABLE `modelostoners` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `activo` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `modelostoners`
+--
+
+INSERT INTO `modelostoners` (`id`, `nombre`, `activo`, `created_at`, `updated_at`) VALUES
+(1, '105A', 1, '2024-10-28 16:18:21', '2024-10-28 16:18:21'),
+(2, '85A', 1, '2024-10-28 16:33:49', '2024-10-28 16:33:49');
 
 -- --------------------------------------------------------
 
@@ -161,11 +193,21 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `toners` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `modelos_id` bigint(20) UNSIGNED NOT NULL,
-  `activo` tinyint(1) NOT NULL DEFAULT 1,
+  `id_modelo` bigint(20) UNSIGNED NOT NULL,
+  `stock` int(11) NOT NULL,
+  `fecha_compra` date NOT NULL,
+  `observaciones` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `toners`
+--
+
+INSERT INTO `toners` (`id`, `id_modelo`, `stock`, `fecha_compra`, `observaciones`, `created_at`, `updated_at`) VALUES
+(1, 2, 25, '2024-10-29', 'ola ke ase', '2024-10-28 16:37:25', '2024-10-28 16:37:25'),
+(2, 1, 2, '2024-10-15', 'ola ke ase 2', '2024-10-28 16:45:49', '2024-10-28 16:45:49');
 
 -- --------------------------------------------------------
 
@@ -215,15 +257,6 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `nombre`, `contraseña`, `activo`, `created_at`, `updated_at`) VALUES
-(1, 'jlanguazco', 'catastro', 1, '2024-10-22 20:04:59', '2024-10-22 20:04:59'),
-(2, 'mbustos', 'catastro', 1, '2024-10-22 20:05:26', '2024-10-22 20:05:26'),
-(3, 'djuarez', 'catastro', 1, '2024-10-22 20:05:36', '2024-10-22 20:05:36');
-
---
 -- Índices para tablas volcadas
 --
 
@@ -253,9 +286,15 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `modelos`
+-- Indices de la tabla `modelosimpresoras`
 --
-ALTER TABLE `modelos`
+ALTER TABLE `modelosimpresoras`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `modelostoners`
+--
+ALTER TABLE `modelostoners`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -284,8 +323,7 @@ ALTER TABLE `personal_access_tokens`
 -- Indices de la tabla `toners`
 --
 ALTER TABLE `toners`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `toners_modelos_id_foreign` (`modelos_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `ubicaciones`
@@ -337,10 +375,16 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `modelos`
+-- AUTO_INCREMENT de la tabla `modelosimpresoras`
 --
-ALTER TABLE `modelos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `modelosimpresoras`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `modelostoners`
+--
+ALTER TABLE `modelostoners`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `movimientos`
@@ -358,7 +402,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de la tabla `toners`
 --
 ALTER TABLE `toners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `ubicaciones`
@@ -376,7 +420,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -388,12 +432,6 @@ ALTER TABLE `usuarios`
 ALTER TABLE `movimientos`
   ADD CONSTRAINT `movimientos_impresora_id_foreign` FOREIGN KEY (`impresora_id`) REFERENCES `impresoras` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `movimientos_toner_id_foreign` FOREIGN KEY (`toner_id`) REFERENCES `toners` (`id`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `toners`
---
-ALTER TABLE `toners`
-  ADD CONSTRAINT `toners_modelos_id_foreign` FOREIGN KEY (`modelos_id`) REFERENCES `modelos` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `ubicaciones`
