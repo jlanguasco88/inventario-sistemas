@@ -17,10 +17,19 @@
 
                             <!-- Campo Modelo de Tóner -->
                             <div class="form-group">
-                                <label class="form-control-label">Nombre</label>
+                                <label class="form-control-label">Marca</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-tint"></i></div>
-                                    <input type="text" name="nombre" class="form-control" placeholder="Ej. 107A"
+                                    <input type="text" name="marca" class="form-control" placeholder="Ej. HP - EPSON"
+                                        required>
+                                </div>
+                            </div>
+                            <!-- Campo Modelo de Tóner -->
+                            <div class="form-group">
+                                <label class="form-control-label">Modelo</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-tint"></i></div>
+                                    <input type="text" name="modelo" class="form-control" placeholder="Ej. 107A"
                                         required>
                                 </div>
                             </div>

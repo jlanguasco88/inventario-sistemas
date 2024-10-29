@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modelos', function (Blueprint $table) {
+        Schema::create('modelostoners', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('marca');
+            $table->string('modelo');
             $table->boolean('activo')->default(true);
             $table->timestamps();
         });

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Modelos;
+use App\Models\ModelosToners;
 use App\Models\Toners;
 use Illuminate\Http\Request;
 
@@ -22,7 +22,7 @@ class TonerController extends Controller
      */
     public function create()
     {
-        $modelos = Modelos::all();
+        $modelos = ModelosToners::all();
         return view('admin.toners.create', compact('modelos'));
     }
 
@@ -36,7 +36,7 @@ class TonerController extends Controller
             'id_modelo' => 'required',
             'stock'=> 'required|integer',
             'fecha_compra'=> 'required|date',
-            'observaciones'=> 'required|string|max:255',
+            'observaciones'=> 'required|string|max:25',
         ]);
 
         // Crear un nuevo registro en la base de datos

@@ -18,9 +18,10 @@
                     <table id="example" class="table table-striped nowrap" style="width:100%" style="text-align: center">
                             <thead>
                                 <tr>
-                                    <th>Descripcion</th>
+                                    <th>ID</th>
+                                    <th>Marca</th>
                                     <th>Modelo</th>
-                                    <th>Orden</th>
+                                    <th>Nro de Orden</th>
                                     <th>Ubicacion</th>
                                     <th>Editar</th>
                                     <th>Eliminar</th>
@@ -30,6 +31,7 @@
                                 @foreach ($impresoras as $impresora)
                                 <tr>
                                     <td>{{$impresora->descripcion}}</td>
+                                    <td>{{ $impresora->modelos ? $impresora->modelos->nombre : 'N/A' }}</td>
                                     <td>{{ $impresora->modelos ? $impresora->modelos->nombre : 'N/A' }}</td>
                                     <td>{{$impresora->orden}}</td>
                                     <td>{{$impresora->ubicacion ? $impresora->ubicacion : 'N/A' }}</td>

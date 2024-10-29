@@ -11,7 +11,8 @@ class ModelosToners extends Model
     protected $table = "modelostoners";
 
     protected $fillable = [
-        'nombre',
+        'marca',
+        'modelo',
         'activo'
         
     ];

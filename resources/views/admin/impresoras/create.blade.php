@@ -8,7 +8,7 @@
                 <!-- Asegúrate de que la columna ocupe el espacio adecuado en diferentes tamaños de pantalla -->
                 <div class="card">
                     <div class="card-header text-center"> <!-- Texto centrado en el header -->
-                        <strong>Agregar Nueva Impresora</strong>
+                        <strong>Asignar Impresora</strong>
                     </div>
                     <div class="card-body card-block">
                         <!-- Aquí comienza el formulario -->
@@ -19,7 +19,15 @@
                                 <label class="form-control-label">Marca</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-tint"></i></div>
-                                    <input type="text" name="descripcion" class="form-control" placeholder="Ej. HP - 107A"
+                                    <input type="text" name="marca" class="form-control" placeholder="Ej. HP - EPSON"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">Modelo</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-tint"></i></div>
+                                    <input type="text" name="modelo" class="form-control" placeholder="Ej. 107A - L380 "
                                         required>
                                 </div>
                             </div>

@@ -11,7 +11,8 @@ class ModelosImpresoras extends Model
     protected $table = "modelosimpresoras";
 
     protected $fillable = [
-        'nombre',
+        'marca',
+        'modelo',
         'activo'
         
     ];

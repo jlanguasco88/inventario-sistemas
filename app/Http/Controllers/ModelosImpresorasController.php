@@ -25,13 +25,15 @@ class ModelosImpresorasController extends Controller
     {
         // Validar los datos de entrada
         $request->validate([
-            'nombre' => 'required|string|max:255',
+            'marca' => 'required|string|max:25',
+            'modelo' => 'required|string|max:25',
             'activo'=> 'required|boolean'
         ]);
 
         // Crear un nuevo registro en la base de datos
         ModelosImpresoras::create([
-            'nombre' => $request->nombre,
+            'marca' => $request->marca,
+            'modelo' => $request->modelo,
             'activo' => $request->activo
 
         ]);
@@ -56,7 +58,7 @@ class ModelosImpresorasController extends Controller
     public function update(Request $request,$idmodelo)
     {
         $request->validate([
-            'nombre' => 'required',
+            'marca' => 'required',
             'activo'=> 'required'
            
             

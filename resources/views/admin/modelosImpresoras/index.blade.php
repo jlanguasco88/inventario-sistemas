@@ -17,7 +17,8 @@
                     <table id="example" class="table table-striped nowrap" style="width:100%" style="text-align: center">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
                                 <th>Activo</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
@@ -26,7 +27,8 @@
                         <tbody>
                         @foreach ($modelosImpresoras as $modeloimp)
                         <tr>
-                             <td>{{$modeloimp->nombre}}</td>  
+                             <td>{{$modeloimp->marca}}</td>  
+                             <td>{{$modeloimp->modelo}}</td>  
                              <td><?php if ($modeloimp->activo == 0){
                                             echo 'Inactivo';
                                         } else {

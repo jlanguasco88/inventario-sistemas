@@ -19,18 +19,18 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tint"></i>Toners</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{route('toners.index')}}">Inventario</a></li>
+                            <li><i class="fa fa-list"></i><a href="{{route('modelosToners.index')}}">Ver modelos de toners</a></li>
                             <li><i class="fa fa-plus"></i><a href="{{route('toners.create')}}">Agregar toner</a></li>
                             <li><i class="fa fa-plus"></i><a href="{{route('modelosToners.create')}}">Agregar modelo de Toner</a></li>
-                            <li><i class="fa fa-list"></i><a href="{{route('modelosToners.index')}}">Ver modelos de toners</a></li>
                             </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-print"></i>Impresoras</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-list"></i><a href="{{route('impresoras.index')}}">Ver Impresoras</a></li>
-                            <li><i class="fa fa-plus"></i><a href="{{route('impresoras.create')}}">Agregar Impresora</a></li>
-                            <li><i class="fa fa-plus"></i><a href="{{route('modelosImpresoras.create')}}">Agregar modelo de Impresora</a></li>
                             <li><i class="fa fa-list"></i><a href="{{route('modelosImpresoras.index')}}">Ver modelos de Impresoras</a></li>
+                            <li><i class="fa fa-plus"></i><a href="{{route('impresoras.create')}}">Asignar Impresora</a></li>
+                            <li><i class="fa fa-plus"></i><a href="{{route('modelosImpresoras.create')}}">Agregar modelo de Impresora</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">

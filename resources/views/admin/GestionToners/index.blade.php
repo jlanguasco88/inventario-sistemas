@@ -7,7 +7,7 @@
         <div>
             <div class="card">
                 <div class="card-header text-center">
-                    <h1>Inventario de Toners</h1>
+                    <h1>Gestion de Toners</h1>
                 </div>
                 <div class="card-body">
                     <!-- Tabla de toners -->
@@ -15,13 +15,14 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Fecha de Cambio</th>
                                 <th>Marca</th>
                                 <th>Modelo</th>
-                                <th>Stock</th>
-                                <th>Fecha de Compra</th>
-                                <th>Observaciones</th>
-                                <th>Editar</th>
-                                <th>Eliminar</th>
+                                <th>Ubicacion</th>
+                                <th>Cant. Paginas Impresas</th>
+                                <th>Cant. Dias</th>
+                                <th>Cambiar Toner</th>
+                                <th>Listado Cambios de Toner</th>
                             </tr>
                         </thead>
                         <tbody>
