@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('modelos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('marca');
+            $table->string('modelo');
             $table->boolean('activo')->default(true);
             $table->timestamps();
         });

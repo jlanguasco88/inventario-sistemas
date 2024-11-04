@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body card-block">
                         <!-- Aquí comienza el formulario -->
-                        <form method="POST" action="">
+                        <form method="POST" action="{{route('impresoras.store')}}">
                             @csrf <!-- Token de seguridad de Laravel -->
 
                             <!-- Campo ID (opcional) -->

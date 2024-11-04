@@ -50,7 +50,7 @@ Route::get('/impresoras/edit',[ImpresoraController::class,'edit'])->name('impres
 //llama a la vista editar impresora
 Route::get('/impresoras/delete',[ImpresoraController::class,'delete'])->name('impresoras.delete');
 
-
+Route::post('/impresoras',[ModelosController::class,'store'])->name('impresoras.store');
 
 
 

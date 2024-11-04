@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('impresora_id')->constrained('impresoras')->onDelete('cascade');
             $table->foreignId('toner_id')->constrained('toners')->onDelete('cascade');
+            $table->date("fecha_cambio");
             $table->integer('hojas_utilizadas')->default(0);
             $table->timestamps();
         });

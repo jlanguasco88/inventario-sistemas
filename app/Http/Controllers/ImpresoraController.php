@@ -27,7 +27,10 @@ class ImpresoraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'activo'=> 'required|boolean'
+        ]);
     }
 
     /**
