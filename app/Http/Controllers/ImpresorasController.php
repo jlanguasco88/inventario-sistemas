@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Modelos;
 use App\Models\Impresoras;
+use App\Models\ModelosToners;
 use App\Models\ModelosImpresoras;
 use Illuminate\Http\Request;
 
@@ -22,8 +23,9 @@ class ImpresorasController extends Controller
      */
     public function create()
     {
-        $modelos= ModelosImpresoras::all();
-        return view('admin.impresoras.create',compact('modelos'));
+        $modelosimpresoras= ModelosImpresoras::all();
+        $modelosToners= ModelosToners::all();
+        return view('admin.impresoras.create',compact('modelosimpresoras','modelosToners'));
     }
 
     /**
@@ -33,15 +35,16 @@ class ImpresorasController extends Controller
     {
         // Validar los datos de entrada
         $request->validate([
+            'id_modeloimp'=> 'required',
+            'id_modelotoner'=> 'required',
             'descripcion' => 'required|string|max:255',
-            'id_modelo'=> 'required',
             'orden'=> 'required',
         ]);
 
         // Crear un nuevo registro en la base de datos
         Impresoras::create([
+            'id_modeloimp'=> $request->id_modelo,
             'descripcion' => $request->descripcion,
-            'id_modelo'=> $request->id_modelo,
             'orden'=> $request->orden,
             'ubicacion'=>$request->ubicacion,
         ]);

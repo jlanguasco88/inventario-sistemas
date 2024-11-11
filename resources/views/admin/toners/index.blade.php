@@ -15,7 +15,6 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Marca</th>
                                 <th>Modelo</th>
                                 <th>Stock</th>
                                 <th>Fecha de Compra</th>
@@ -29,8 +28,7 @@
                         @foreach ($toners as $toner)
                                 <tr>
                                     <td>{{$toner->id}}</td>
-                                    <td>{{$toner->modelos ? $toner->modelos->nombre : 'N/A' }}</td>
-                                    <td>{{$toner->modelos ? $toner->modelos->nombre : 'N/A' }}</td>
+                                    <td>{{$toner->modelos ? $toner->modelos->marca ." - ".$toner->modelos->modelo : 'N/A' }}</td>
                                     <td>{{$toner->stock}}</td>
                                     <td>{{$toner->fecha_compra}}</td>
                                     <td>{{$toner->observaciones}}</td>

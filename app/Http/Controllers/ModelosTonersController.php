@@ -49,10 +49,10 @@ class ModelosTonersController extends Controller
     }
 
 
-    public function edit($idmodelo)
+    public function edit($id)
     {
-        $modelosToners = ModelosToners::findOrFail($idmodelo);
-        return view('admin.modelosToners.edit', compact('modelosToners'));
+        $modelo = ModelosToners::findOrFail($id); // O cualquier otro método para obtener el modelo
+        return view('admin.modelosToners.edit', compact('modelo'));
     }
 
     public function update(Request $request,$idmodelo)

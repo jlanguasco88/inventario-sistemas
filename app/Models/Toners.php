@@ -15,7 +15,10 @@ class Toners extends Model
         'stock',
         'fecha_compra',
         'observaciones',
+        
     ];
+    
+    public $timestamps = false;
 
     public function modelos()
     {

@@ -20,7 +20,7 @@
                                 <label class="form-control-label">Nombre</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-tint"></i></div>
-                                    <input type="text" name="nombre" class="form-control" value="{{ $modelo->nombre }}"
+                                    <input type="text" name="nombre" class="form-control" value="{{ $modelo->marca ." - ". $modelo->modelo }}"
                                         required>
                                 </div>
                             </div>

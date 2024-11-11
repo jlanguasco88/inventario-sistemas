@@ -21,7 +21,7 @@
                                 <select class="form-control input-lg" name="id_modelo" required="">
                                     <option value="">Seleccionar Modelo</option>
                                     @foreach($modelos as $modelo)
-                                    <option value="{{$modelo->id}}">{{$modelo->nombre}}</option>
+                                    <option value="{{$modelo->id}}">{{$modelo->marca . " - " . $modelo->modelo}}</option>
                                     @endforeach
                                 </select>
                             </div>

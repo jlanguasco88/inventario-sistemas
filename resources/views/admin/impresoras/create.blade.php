@@ -7,65 +7,59 @@
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <!-- Asegúrate de que la columna ocupe el espacio adecuado en diferentes tamaños de pantalla -->
                 <div class="card">
-                    <div class="card-header text-center"> <!-- Texto centrado en el header -->
-                        <strong>Asignar Impresora</strong>
+                    <div class="card-header text-center">
+                        <strong>Agregar Nuevo Tóner</strong>
                     </div>
                     <div class="card-body card-block">
                         <!-- Aquí comienza el formulario -->
-                        <form method="POST" action="{{route('impresoras.store')}}">
-                            @csrf <!-- Token de seguridad de Laravel -->
-
-                            <div class="form-group">
-                                <label class="form-control-label">Marca</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-tint"></i></div>
-                                    <input type="text" name="marca" class="form-control" placeholder="Ej. HP - EPSON"
-                                        required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">Modelo</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-tint"></i></div>
-                                    <input type="text" name="modelo" class="form-control" placeholder="Ej. 107A - L380 "
-                                        required>
-                                </div>
-                            </div>
+                        <form method="POST" action="{{route('toners.store')}}">
+                            @csrf <!-- Token de seguridad para formularios en Laravel -->
 
                             <!-- Campo Modelo de Impresora -->
                             <div class="form-group">
-                                <label>Modelo de toner:</label>
-                                <select class="form-control input-lg" name="id_modelo" required="">
+                                <label>Modelo de Impresora:</label>
+                                <select class="form-control input-lg" name="id_modeloimp" required="">
                                     <option value="">Seleccionar Modelo</option>
-                                    @foreach($modelos as $modelo)
-                                    <option value="{{$modelo->id}}">{{$modelo->nombre}}</option>
+                                    @foreach($modelosimpresoras as $modeloimp)
+                                    <option value="{{$modeloimp->id}}">{{$modeloimp->marca . " - " . $modeloimp->modelo}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <!-- Campo Modelo de Impresora -->
+                            <div class="form-group">
+                                <label>Modelo de toner:</label>
+                                <select class="form-control input-lg" name="id_modelotoner" required="">
+                                    <option value="">Seleccionar Modelo</option>
+                                    @foreach($modelosToners as $modelotoner)
+                                    <option value="{{$modelotoner->id}}">{{$modelotoner->marca . " - " . $modelotoner->modelo}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
-                            <!-- Campo Orden -->
+                            <!-- Campo Stock de Compra -->
                             <div class="form-group">
-                                <label class="form-control-label">Orden</label>
+                                <label class="form-control-label">Nro de Orden</label>
                                 <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-tint"></i></div>
-                                    <input type="text" name="orden" class="form-control" placeholder="Ej. 155-156165-156465"
-                                        required>
+                                    <div class="input-group-addon"><i class="fa fa-number"></i></div>
+                                    <input type="number" name="orden" class="form-control"
+                                        placeholder="Ingrese el nro de orden" min="1" required>
                                 </div>
                             </div>
 
+
                             <!-- Campo Ubicacion -->
                             <div class="form-group">
-                                <label class="">Ubicacion </label>
+                                <label class="form-control-label">Ubicacion</label>
                                 <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-tint"></i></div>
-                                    <input type="text" name="ubicacion" class="form-control" placeholder="Ej. Personal15"
-                                    >
+                                    <div class="input-group-addon"><i class="fa fa-file-text-o"></i></div>
+                                    <input type="text" name="ubicacion" class="form-control"
+                                    placeholder="Ej. Personal01" min="1" required>
                                 </div>
                             </div>
 
                             <!-- Botón para enviar el formulario -->
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">Guardar Impresora</button>
+                                <button type="submit" class="btn btn-primary btn-block">Guardar Tóner</button>
                             </div>
                         </form>
                         <!-- Fin del formulario -->

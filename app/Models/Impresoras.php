@@ -10,15 +10,19 @@ class Impresoras extends Model
     protected $table = "impresoras";
 
     protected $fillable = [
-        'descripcion',
         'id_modelo',
+        'modelotonerid',
         'orden',
         'ubicacion',       
     ];
 
-    public function modelos()
+    public function modeloimpresora()
     {
         return $this->belongsTo(ModelosImpresoras::class, 'id_modelo', 'id');
+    }
+    public function modelotoner()
+    {
+        return $this->belongsTo(ModelosToners::class, 'id_modelo', 'id');
     }
   
 

@@ -27,6 +27,7 @@ class ModelosImpresorasController extends Controller
         $request->validate([
             'marca' => 'required|string|max:25',
             'modelo' => 'required|string|max:25',
+            'modelotonerid' => 'required|string|max:25',
             'activo'=> 'required|boolean'
         ]);
 
@@ -34,6 +35,7 @@ class ModelosImpresorasController extends Controller
         ModelosImpresoras::create([
             'marca' => $request->marca,
             'modelo' => $request->modelo,
+            'modelotonerid' => $request->modelotoner,
             'activo' => $request->activo
 
         ]);

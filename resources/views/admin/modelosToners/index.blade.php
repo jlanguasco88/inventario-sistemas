@@ -17,6 +17,7 @@
                     <table id="example" class="table table-striped nowrap" style="width:100%" style="text-align: center">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Marca</th>
                                 <th>Modelo</th>
                                 <th>Activo</th>
@@ -27,6 +28,7 @@
                         <tbody>
                         @foreach ($modelosToners as $modelo)
                         <tr>
+                             <td>{{$modelo->id}}</td>  
                              <td>{{$modelo->marca}}</td>  
                              <td>{{$modelo->modelo}}</td>  
                              <td><?php if ($modelo->activo == 0){
