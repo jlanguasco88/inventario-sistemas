@@ -8,7 +8,7 @@
                 <!-- Asegúrate de que la columna ocupe el espacio adecuado en diferentes tamaños de pantalla -->
                 <div class="card">
                     <div class="card-header text-center">
-                        <strong>Agregar Nuevo Tóner</strong>
+                        <strong>Agregar Nueva Compra</strong>
                     </div>
                     <div class="card-body card-block">
                         <!-- Aquí comienza el formulario -->
@@ -17,13 +17,18 @@
 
                             <!-- Campo Modelo de Impresora -->
                             <div class="form-group">
-                                <label>Modelo de toner:</label>
-                                <select class="form-control input-lg" name="id_modelo" required="">
-                                    <option value="">Seleccionar Modelo</option>
-                                    @foreach($modelos as $modelo)
-                                    <option value="{{$modelo->id}}">{{$modelo->marca . " - " . $modelo->modelo}}</option>
-                                    @endforeach
-                                </select>
+                                <label class="form-control-label">Modelo de Toner</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-print"></i>
+                                    </div>
+                                    <select class="form-control input-lg" name="id_modelo" required="">
+                                        <option value="">Seleccionar Modelo</option>
+                                        @foreach($modelos as $modelo)
+                                            <option value="{{$modelo->id}}">{{$modelo->marca . " - " . $modelo->modelo}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
 
                             <!-- Campo Stock de Compra -->
@@ -58,7 +63,7 @@
 
                             <!-- Botón para enviar el formulario -->
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">Guardar Tóner</button>
+                                <button type="submit" class="btn btn-primary btn-block">Guardar Compra</button>
                             </div>
                         </form>
                         <!-- Fin del formulario -->

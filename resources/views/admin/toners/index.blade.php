@@ -25,25 +25,32 @@
                         </thead>
                         <tbody>
 
-                        @foreach ($toners as $toner)
+                            @foreach ($toners as $toner)
                                 <tr>
                                     <td>{{$toner->id}}</td>
-                                    <td>{{$toner->modelos ? $toner->modelos->marca ." - ".$toner->modelos->modelo : 'N/A' }}</td>
+                                    <td>{{$toner->modelos ? $toner->modelos->marca . " - " . $toner->modelos->modelo : 'N/A' }}
+                                    </td>
                                     <td>{{$toner->stock}}</td>
                                     <td>{{$toner->fecha_compra}}</td>
                                     <td>{{$toner->observaciones}}</td>
                                     <td>
-                                        <a href="">
-                                            <button class="btn btn-warning rounded-circle" title="Editar"><i class="fa fa-pencil" style="display:inline"></i></button>
+                                        <a href="{{ route('toners.edit', $toner->id) }}">
+                                            <button class="btn btn-warning rounded-circle" title="Editar"><i
+                                                    class="fa fa-pencil" style="display:inline"></i></button>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="">
-                                            <button class="btn btn-danger rounded-circle" title="Eliminar" onclick="return confirm('Está seguro de eliminar el modelo de toner?')"><i class="fa fa-trash style=" display:inline"></i></button>
-                                        </a>
+                                        <form action="{{ route('toners.delete', $toner->id) }}" method="POST"
+                                            onsubmit="return confirm('Está seguro de eliminar el modelo de toner?');">
+                                            @csrf
+                                            @method('DELETE') <!-- Esto simula el método DELETE en el formulario -->
+                                            <button type="submit" class="btn btn-danger rounded-circle" title="Eliminar">
+                                                <i class="fa fa-trash" style="display:inline"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
-                                @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

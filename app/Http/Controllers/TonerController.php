@@ -34,17 +34,17 @@ class TonerController extends Controller
         // Validar los datos de entrada
         $request->validate([
             'id_modelo' => 'required',
-            'stock'=> 'required|integer',
-            'fecha_compra'=> 'required|date',
-            'observaciones'=> 'required|string|max:25',
+            'stock' => 'required|integer',
+            'fecha_compra' => 'required|date',
+            'observaciones' => 'required|string|max:25',
         ]);
 
         // Crear un nuevo registro en la base de datos
         Toners::create([
             'id_modelo' => $request->id_modelo, // Cambiado a $request->Nombre para coincidir con la validación
-            'stock'=> $request->stock,
-            'fecha_compra'=>$request->fecha_compra,
-            'observaciones'=>$request->observaciones,
+            'stock' => $request->stock,
+            'fecha_compra' => $request->fecha_compra,
+            'observaciones' => $request->observaciones,
         ]);
 
         // Redirigir a la lista de toners con un mensaje de éxito
@@ -62,24 +62,51 @@ class TonerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        return view('admin.toners.edit');
+        $modelos = ModelosToners::all();
+        $toners = Toners::findOrFail($id);
+        return view('admin.toners.edit', compact('modelos', 'toners'));
+    }
+    public function update(Request $request, $id)
+    {
+        // Validar los datos de entrada
+        $request->validate([
+            'id_modelo' => 'required',
+            'stock' => 'required|integer|min:1', // Aseguramos que el stock sea un número entero positivo
+            'fecha_compra' => 'required|date',
+            'observaciones' => 'nullable|string|max:255', // Se hace opcional el campo de observaciones
+        ]);
+
+        // Obtener el toner que queremos actualizar
+        $toner = Toners::findOrFail($id);
+
+        // Actualizar los valores del toner
+        $toner->id_modelo = $request->id_modelo;
+        $toner->stock = $request->stock;
+        $toner->fecha_compra = $request->fecha_compra;
+        $toner->observaciones = $request->observaciones ?? ''; // Si no hay observaciones, dejamos el campo vacío
+
+        // Guardar los cambios en la base de datos
+        $toner->save();
+
+        // Redirigir al usuario, por ejemplo, a la lista de toners o mostrar un mensaje de éxito
+        return redirect()->route('toners.index')->with('success', 'Toner actualizado correctamente.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        return view('admin.toners.delete');
+        // Buscar el toner por su ID
+        $toner = Toners::findOrFail($id);
+    
+        // Eliminar el toner de la base de datos
+        $toner->delete();
+    
+        // Redirigir con un mensaje de éxito
+        return redirect()->route('toners.index')->with('success', 'Toner eliminado correctamente.');
     }
 }

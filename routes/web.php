@@ -49,10 +49,12 @@ Route::get('/toners', [TonerController::class, 'index'])->name('toners.index');
 //llama a la vista agregar toner
 Route::post('/toners', [TonerController::class, 'store'])->name('toners.store');
 Route::get('/toners/create', [TonerController::class, 'create'])->name('toners.create');
-//llama a la vista editar impresora
-Route::get('/toners/edit', [TonerController::class, 'edit'])->name('toners.edit');
-//llama a la vista editar impresora
-Route::get('/toners/delete', [TonerController::class, 'delete'])->name('toners.delete');
+//llama a la vista editar Toner
+Route::get('/toners/{id}/edit', [TonerController::class, 'edit'])->name('toners.edit');
+Route::put('/toners/{id}', [TonerController::class, 'update'])->name('toners.update');
+
+//llama a la vista Eliminar toner
+Route::delete('/toners/{id}', [TonerController::class, 'destroy'])->name('toners.delete');
 Route::get('toners/{modeloId}/detalle', [TonerController::class, 'getTonersByModel'])->name('toners.detalle');
 
 //llama a la vista de invetario de impresoras
